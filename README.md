@@ -15,7 +15,8 @@ docs/        дизайн и дорожная карта
 ## Локально (OSPanel)
 
 1. Создай БД `civaris` и пользователя в OSPanel.
-2. Скопируй `api/config/config.example.php` → `api/config/config.php`, пропиши доступ к БД.
+2. Скопируй `api/config/config.example.php` → `api/config/config.php`, пропиши доступ к БД.  
+   В OSPanel 6 для MariaDB-11.4 хост обычно **`127.0.1.16`**, не `127.0.0.1` (см. `hosts`: `mariadb-11.4`).
 3. Импортируй `database/schema.sql`.
 4. Документ-рут домена `civaris.loc` укажи на папку `public`  
    (или временно на корень проекта и открой `/public/`).

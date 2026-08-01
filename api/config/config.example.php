@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 return [
     'db' => [
-        'host' => '127.0.0.1',
+        // OSPanel: MariaDB-11.4 слушает 127.0.1.16 (не 127.0.0.1!)
+        'host' => '127.0.1.16',
         'port' => 3306,
         'name' => 'civaris',
         'user' => 'root',
@@ -15,7 +16,6 @@ return [
         'name' => 'Civaris',
         'debug' => true,
         'cors_origin' => '*',
-        // free population cap for new worlds
         'free_population_cap' => 500,
         'start_population' => 250,
         'start_poleis' => 10,

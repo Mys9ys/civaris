@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Корень домена = папка проекта → отдаём содержимое public/
+RewriteRule ^api(?:/(.*))?$ public/api/index.php [QSA,L]
+RewriteRule ^$ public/index.html [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/public%{REQUEST_URI} -f
+RewriteRule ^(.*)$ public/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ public/index.html [L]
