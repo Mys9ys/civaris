@@ -75,7 +75,12 @@ final class Auth
         if ($row) {
             self::startSession();
             $_SESSION['user_id'] = (int) $row['id'];
-            return ['id' => (int) $row['id'], 'login' => $row['login'], 'email' => $row['email'], 'vk_id' => (int) $row['vk_id']];
+            return [
+                'id' => (int) $row['id'],
+                'login' => $row['login'],
+                'email' => $row['email'],
+                'vk_id' => (int) $row['vk_id'],
+            ];
         }
 
         $login = 'vk_' . $vkId;
@@ -105,5 +110,32 @@ final class Auth
         $stmt->execute([$id]);
         $row = $stmt->fetch();
         return $row ?: null;
+    }
+
+    public static function requireAdmin(PDO $pdo): int
+    {
+        $id = self::requireUser();
+        $me = self::me($pdo);
+        if (!$me || ($me['role'] ?? '') !== 'admin') {
+            Response::error('Только для администратора', 403);
+            exit;
+        }
+        return $id;
+    }
+
+    public static function changePassword(PDO $pdo, int $userId, string $current, string $newPassword): void
+    {
+        if (strlen($newPassword) < 6) {
+            throw new \InvalidArgumentException('Новый пароль от 6 символов');
+        }
+        $stmt = $pdo->prepare('SELECT password_hash FROM users WHERE id = ? LIMIT 1');
+        $stmt->execute([$userId]);
+        $row = $stmt->fetch();
+        if (!$row || !password_verify($current, $row['password_hash'])) {
+            throw new \InvalidArgumentException('Текущий пароль неверен');
+        }
+        $hash = password_hash($newPassword, PASSWORD_DEFAULT);
+        $upd = $pdo->prepare('UPDATE users SET password_hash = ? WHERE id = ?');
+        $upd->execute([$hash, $userId]);
     }
 }

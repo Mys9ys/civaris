@@ -5,11 +5,13 @@ declare(strict_types=1);
 use Civaris\Auth;
 use Civaris\Database;
 use Civaris\Response;
+use Civaris\Schema;
 use Civaris\WorldService;
 
 require dirname(__DIR__) . '/src/Database.php';
 require dirname(__DIR__) . '/src/Response.php';
 require dirname(__DIR__) . '/src/Auth.php';
+require dirname(__DIR__) . '/src/Schema.php';
 require dirname(__DIR__) . '/src/WorldService.php';
 
 $configFile = dirname(__DIR__) . '/config/config.php';
@@ -24,7 +26,7 @@ $config = require $configFile;
 header('Access-Control-Allow-Origin: ' . ($config['app']['cors_origin'] ?? '*'));
 header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Headers: Content-Type');
-header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
@@ -35,6 +37,7 @@ Auth::startSession();
 
 try {
     $pdo = Database::pdo($config);
+    Schema::ensure($pdo);
 } catch (Throwable $e) {
     Response::error($config['app']['debug'] ? $e->getMessage() : 'Ошибка БД', 500);
     exit;
@@ -47,13 +50,16 @@ $uri = preg_replace('#^/api#', '', $uri) ?: '/';
 $uri = rtrim($uri, '/') ?: '/';
 
 $body = [];
-if ($method === 'POST') {
+if (in_array($method, ['POST', 'PUT', 'PATCH', 'DELETE'], true)) {
     $raw = file_get_contents('php://input') ?: '';
     $json = json_decode($raw, true);
     $body = is_array($json) ? $json : $_POST;
 }
 
+require dirname(__DIR__) . '/src/AdminService.php';
+
 $worlds = new WorldService($pdo, $config['app']);
+$admin = new \Civaris\AdminService($pdo);
 
 try {
     if ($method === 'GET' && $uri === '/health') {
@@ -108,6 +114,63 @@ try {
         exit;
     }
 
+    if ($method === 'POST' && $uri === '/auth/password') {
+        $uid = Auth::requireUser();
+        Auth::changePassword(
+            $pdo,
+            $uid,
+            (string) ($body['current_password'] ?? ''),
+            (string) ($body['new_password'] ?? '')
+        );
+        Response::json(['ok' => true]);
+        exit;
+    }
+
+    // --- Admin settings CRUD ---
+    if ($method === 'GET' && $uri === '/settings/meta') {
+        Auth::requireAdmin($pdo);
+        Response::json([
+            'ok' => true,
+            'resources' => [
+                ['key' => 'families', 'title' => 'Семейства'],
+                ['key' => 'click-needs', 'title' => 'Потребности щелчка'],
+                ['key' => 'catalog', 'title' => 'Каталог товаров v0'],
+                ['key' => 'knowledge', 'title' => 'Ветка знаний'],
+            ],
+        ]);
+        exit;
+    }
+
+    if (preg_match('#^/settings/(families|click-needs|catalog|knowledge)$#', $uri, $m)) {
+        Auth::requireAdmin($pdo);
+        $resource = $m[1];
+        if ($method === 'GET') {
+            Response::json(['ok' => true, 'items' => $admin->list($resource)]);
+            exit;
+        }
+        if ($method === 'POST') {
+            $row = $admin->create($resource, $body);
+            Response::json(['ok' => true, 'item' => $row], 201);
+            exit;
+        }
+    }
+
+    if (preg_match('#^/settings/(families|click-needs|catalog|knowledge)/(\d+)$#', $uri, $m)) {
+        Auth::requireAdmin($pdo);
+        $resource = $m[1];
+        $id = (int) $m[2];
+        if ($method === 'PUT') {
+            $row = $admin->update($resource, $id, $body);
+            Response::json(['ok' => true, 'item' => $row]);
+            exit;
+        }
+        if ($method === 'DELETE') {
+            $admin->delete($resource, $id);
+            Response::json(['ok' => true]);
+            exit;
+        }
+    }
+
     if ($method === 'GET' && $uri === '/worlds') {
         $uid = Auth::requireUser();
         Response::json(['ok' => true, 'worlds' => $worlds->listForUser($uid)]);
@@ -120,14 +183,19 @@ try {
         if ($name === '') {
             $name = 'Мир Civaris';
         }
-        $world = $worlds->create($uid, $name);
-        Response::json(['ok' => true, 'world' => $world]);
+        $mapSeed = isset($body['map_seed']) ? (int) $body['map_seed'] : null;
+        if ($mapSeed !== null && $mapSeed <= 0) {
+            $mapSeed = null;
+        }
+        $world = $worlds->create($uid, $name, $mapSeed);
+        Response::json(['ok' => true, 'world' => $world], 201);
         exit;
     }
 
     if ($method === 'GET' && preg_match('#^/worlds/(\d+)$#', $uri, $m)) {
         $uid = Auth::requireUser();
-        $world = $worlds->getOwned((int) $m[1], $uid);
+        $worldId = (int) $m[1];
+        $world = $worlds->getOwned($worldId, $uid);
         if (!$world) {
             Response::error('Мир не найден', 404);
             exit;
@@ -135,7 +203,8 @@ try {
         Response::json([
             'ok' => true,
             'world' => $world,
-            'settlements' => $worlds->settlements((int) $m[1]),
+            'settlements' => $worlds->settlements($worldId),
+            'people_count' => $worlds->peopleCount($worldId),
         ]);
         exit;
     }
@@ -157,7 +226,21 @@ try {
         Response::json([
             'ok' => true,
             'world' => $world,
-            'chronicle' => $worlds->chronicle((int) $m[1], 20),
+            'chronicle' => $worlds->chronicle((int) $m[1], 60),
+        ]);
+        exit;
+    }
+
+    if ($method === 'POST' && preg_match('#^/worlds/(\d+)/reset$#', $uri, $m)) {
+        $uid = Auth::requireAdmin($pdo);
+        $worldId = (int) $m[1];
+        $world = $worlds->reset($worldId, $uid);
+        Response::json([
+            'ok' => true,
+            'world' => $world,
+            'settlements' => $worlds->settlements($worldId),
+            'people_count' => $worlds->peopleCount($worldId),
+            'chronicle' => $worlds->chronicle($worldId, 60),
         ]);
         exit;
     }

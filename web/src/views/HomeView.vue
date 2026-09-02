@@ -1,9 +1,10 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { api } from '../api'
 
 const router = useRouter()
+const route = useRoute()
 const user = ref(null)
 const worlds = ref([])
 const error = ref('')
@@ -13,6 +14,7 @@ const loginName = ref('')
 const password = ref('')
 const mode = ref('login')
 const worldName = ref('Первый мир')
+const mapDraftHint = ref('')
 
 async function refresh() {
   error.value = ''
@@ -62,11 +64,13 @@ async function logout() {
   worlds.value = []
 }
 
-async function createWorld() {
+async function createWorld(mapSeed) {
   busy.value = true
   error.value = ''
   try {
-    const res = await api.createWorld(worldName.value)
+    const payload = { name: worldName.value }
+    if (mapSeed != null) payload.map_seed = mapSeed
+    const res = await api.createWorld(payload)
     await refresh()
     router.push({ name: 'world', params: { id: res.world.id } })
   } catch (e) {
@@ -76,7 +80,31 @@ async function createWorld() {
   }
 }
 
+function createFromMapDraft() {
+  try {
+    const raw = localStorage.getItem('civaris.map-puzzle.create-draft.v1')
+    if (!raw) return null
+    const draft = JSON.parse(raw)
+    if (!Number.isInteger(draft.seed)) return null
+    return draft.seed
+  } catch {
+    return null
+  }
+}
+
+async function createWorldFromMap() {
+  const seed = createFromMapDraft()
+  if (seed == null) {
+    error.value = 'На /map откройте карту и нажмите «Создать мир с этой картой»'
+    return
+  }
+  await createWorld(seed)
+}
+
 onMounted(() => {
+  if (route.query.fromMap === '1' && createFromMapDraft() != null) {
+    mapDraftHint.value = `Черновик карты: seed ${createFromMapDraft()} — войдите и нажмите «Создать из черновика карты»`
+  }
   refresh().catch((e) => {
     error.value = e.message + ' — проверь API/БД (civaris.loc/api/health)'
   })
@@ -87,9 +115,10 @@ onMounted(() => {
   <section class="panel">
     <h1>Наблюдай цивилизации</h1>
     <p class="lead">
-      10 полисов × 25 человечков. Календарь со «щелчка». Хозяйственный пайплайн — следующая фаза.
+      Малая карта: 5 деревень × 20 человечков на стартовых провинциях. Календарь со «щелчка». Хозяйственный тик — следующий срез.
     </p>
 
+    <p v-if="mapDraftHint" class="hint">{{ mapDraftHint }}</p>
     <p v-if="error" class="err">{{ error }}</p>
 
     <div v-if="!user" class="auth">
@@ -124,8 +153,11 @@ onMounted(() => {
           Имя мира
           <input v-model="worldName" />
         </label>
-        <button type="button" class="primary" :disabled="busy" @click="createWorld">
-          Создать мир (10 полисов)
+        <button type="button" class="primary" :disabled="busy" @click="createWorld()">
+          Создать мир (малая · 5×20)
+        </button>
+        <button type="button" class="ghost" :disabled="busy" @click="createWorldFromMap">
+          Создать из черновика карты (/map)
         </button>
       </div>
 
@@ -137,6 +169,7 @@ onMounted(() => {
           </router-link>
           <span class="meta">
             {{ w.day }}.{{ w.month }}.{{ w.year }} · население {{ w.population }}/{{ w.population_cap }}
+            <template v-if="w.map_seed"> · seed {{ w.map_seed }}</template>
           </span>
         </li>
       </ul>
@@ -248,5 +281,12 @@ h2 {
 }
 .muted {
   color: #6a7760;
+}
+.hint {
+  color: #2f5d3a;
+  background: #eef4e8;
+  padding: 0.5rem 0.75rem;
+  border-radius: 3px;
+  margin: 0 0 0.75rem;
 }
 </style>
