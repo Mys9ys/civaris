@@ -115,37 +115,28 @@ onMounted(() => {
   <section class="panel">
     <h1>Наблюдай цивилизации</h1>
     <p class="lead">
-      Малая карта: 5 деревень × 20 человечков на стартовых провинциях. Календарь со «щелчка». Хозяйственный тик — следующий срез.
+      Тест: 1 деревня × 30 человечков. Неделя пн·ср·пт·вс (вс — выходной). Календарь и сбор со «щелчка».
     </p>
 
     <p v-if="mapDraftHint" class="hint">{{ mapDraftHint }}</p>
     <p v-if="error" class="err">{{ error }}</p>
 
     <div v-if="!user" class="auth">
-      <div class="tabs">
-        <button type="button" :class="{ on: mode === 'login' }" @click="mode = 'login'">Вход</button>
-        <button type="button" :class="{ on: mode === 'register' }" @click="mode = 'register'">Регистрация</button>
-      </div>
-      <label>
-        Логин
-        <input v-model="loginName" autocomplete="username" />
-      </label>
-      <label>
-        Пароль
-        <input v-model="password" type="password" autocomplete="current-password" />
-      </label>
-      <button type="button" class="primary" :disabled="busy" @click="submitAuth">
-        {{ mode === 'login' ? 'Войти' : 'Создать аккаунт' }}
-      </button>
-      <button type="button" class="ghost" :disabled="busy" @click="mockVk">
-        VK mock (локалка)
-      </button>
+      <p class="hint">Вход… (dev_auto_admin) — если зависло, проверь API на :8080.</p>
+      <button type="button" class="primary" :disabled="busy" @click="refresh">Обновить</button>
     </div>
 
     <div v-else class="desk">
       <p>
         Вы вошли как <strong>{{ user.login }}</strong>
+        <span v-if="user.role === 'admin'" class="dev-badge">тест · без пароля</span>
         <button type="button" class="ghost inline" @click="logout">Выйти</button>
+        <router-link v-if="user.role === 'admin'" class="nav-link" :to="{ name: 'catalog' }"
+          >Каталог</router-link
+        >
+        <router-link v-if="user.role === 'admin'" class="nav-link" :to="{ name: 'settings' }"
+          >Аккаунт</router-link
+        >
       </p>
 
       <div class="create">
@@ -154,7 +145,7 @@ onMounted(() => {
           <input v-model="worldName" />
         </label>
         <button type="button" class="primary" :disabled="busy" @click="createWorld()">
-          Создать мир (малая · 5×20)
+          Создать мир (1×30)
         </button>
         <button type="button" class="ghost" :disabled="busy" @click="createWorldFromMap">
           Создать из черновика карты (/map)
@@ -206,6 +197,12 @@ h1 {
   flex-direction: column;
   gap: 0.65rem;
   max-width: 420px;
+}
+.nav-link {
+  margin-left: 0.65rem;
+  color: #2f5d3a;
+  text-decoration: underline;
+  font-size: 0.9rem;
 }
 label {
   display: flex;
@@ -281,6 +278,16 @@ h2 {
 }
 .muted {
   color: #6a7760;
+}
+.dev-badge {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.72rem;
+  color: #5a4a20;
+  background: #f0e2a8;
+  border-radius: 3px;
+  vertical-align: middle;
 }
 .hint {
   color: #2f5d3a;

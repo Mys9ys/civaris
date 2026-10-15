@@ -1,0 +1,443 @@
+{
+  "generate": [
+    {
+      "sku_key": "bele",
+      "subject": "folded underwear linen clothes"
+    },
+    {
+      "sku_key": "bochka_30_l",
+      "subject": "wooden barrel keg"
+    },
+    {
+      "sku_key": "brevno",
+      "subject": "wooden log timber beam"
+    },
+    {
+      "sku_key": "bryuki",
+      "subject": "simple pants trousers"
+    },
+    {
+      "sku_key": "bumazhnyy_kulek",
+      "subject": "paper cone bag pouch"
+    },
+    {
+      "sku_key": "denznak",
+      "subject": "golden coin money token"
+    },
+    {
+      "sku_key": "doska",
+      "subject": "wooden plank board"
+    },
+    {
+      "sku_key": "flakon_dlya_chernil",
+      "subject": "small empty ceramic ink bottle flask"
+    },
+    {
+      "sku_key": "flakon_s_chernilami",
+      "subject": "ceramic ink bottle filled with black ink"
+    },
+    {
+      "sku_key": "glina_1_kg",
+      "subject": "brown clay lump brick of soft clay"
+    },
+    {
+      "sku_key": "gorbyl",
+      "subject": "rough wooden slab slabwood"
+    },
+    {
+      "sku_key": "gorshok_1_l",
+      "subject": "terracotta clay pottery jug pot"
+    },
+    {
+      "sku_key": "grosbuh",
+      "subject": "thick ledger account book"
+    },
+    {
+      "sku_key": "hlopok",
+      "subject": "fluffy white cotton boll"
+    },
+    {
+      "sku_key": "ipoteka",
+      "subject": "mortgage house key with coin"
+    },
+    {
+      "sku_key": "kamen_dlya_pechi",
+      "subject": "rectangular gray stone block for oven"
+    },
+    {
+      "sku_key": "kamen_dlya_pola",
+      "subject": "flat rectangular paving stone slab"
+    },
+    {
+      "sku_key": "kamennaya_glyba",
+      "subject": "large gray stone boulder"
+    },
+    {
+      "sku_key": "kamenyy_dlya_kolodtsa",
+      "subject": "rectangular gray stone block for well"
+    },
+    {
+      "sku_key": "koleso",
+      "subject": "gray stone cart wheel"
+    },
+    {
+      "sku_key": "kolodets_s_vodoy",
+      "subject": "stone water well with bucket"
+    },
+    {
+      "sku_key": "kora",
+      "subject": "rolled tree bark sheet"
+    },
+    {
+      "sku_key": "korichnevaya_kraska",
+      "subject": "brown paint pot with brush"
+    },
+    {
+      "sku_key": "kozha_korova",
+      "subject": "cow leather hide"
+    },
+    {
+      "sku_key": "kozha_ovtsa",
+      "subject": "sheep leather hide"
+    },
+    {
+      "sku_key": "kurtka",
+      "subject": "simple jacket coat"
+    },
+    {
+      "sku_key": "lepeshka",
+      "subject": "round flatbread flat cake"
+    },
+    {
+      "sku_key": "litsenziya_blank",
+      "subject": "official license paper document"
+    },
+    {
+      "sku_key": "lopata",
+      "subject": "hand shovel spade tool"
+    },
+    {
+      "sku_key": "moloko",
+      "subject": "milk jug bottle of milk"
+    },
+    {
+      "sku_key": "molot",
+      "subject": "stone hammer tool"
+    },
+    {
+      "sku_key": "muka_1_kg",
+      "subject": "sack bag of white flour"
+    },
+    {
+      "sku_key": "myaso_baranina_korova",
+      "subject": "raw mutton lamb meat"
+    },
+    {
+      "sku_key": "myaso_govyadina_korova",
+      "subject": "raw beef meat cut"
+    },
+    {
+      "sku_key": "myaso_kuritsakorova",
+      "subject": "raw chicken meat"
+    },
+    {
+      "sku_key": "nabor_igolok",
+      "subject": "set of sewing needles"
+    },
+    {
+      "sku_key": "nauchnaya_rabota_malaya",
+      "subject": "small research scroll paper"
+    },
+    {
+      "sku_key": "navolochka",
+      "subject": "pillowcase fabric"
+    },
+    {
+      "sku_key": "nit_hlopok",
+      "subject": "spool of cotton thread"
+    },
+    {
+      "sku_key": "nozh",
+      "subject": "simple stone knife blade"
+    },
+    {
+      "sku_key": "obzhig",
+      "subject": "pottery firing flame kiln heat"
+    },
+    {
+      "sku_key": "opilki",
+      "subject": "pile of wood sawdust shavings"
+    },
+    {
+      "sku_key": "pech_dlya_obzhiga",
+      "subject": "ceramic kiln firing oven"
+    },
+    {
+      "sku_key": "pech_dlya_zapekaniya",
+      "subject": "stone baking oven with warm glow"
+    },
+    {
+      "sku_key": "perevozka_gruza_1_km",
+      "subject": "cargo delivery parcel on a cart icon"
+    },
+    {
+      "sku_key": "pischaya_bumaga",
+      "subject": "stack of writing paper sheets"
+    },
+    {
+      "sku_key": "podushka",
+      "subject": "soft pillow cushion"
+    },
+    {
+      "sku_key": "proekt_ratushi",
+      "subject": "blueprint scroll of a town hall building"
+    },
+    {
+      "sku_key": "prostyn",
+      "subject": "folded bed sheet"
+    },
+    {
+      "sku_key": "pryalka",
+      "subject": "wooden spinning wheel"
+    },
+    {
+      "sku_key": "pshenitsa_1_kg",
+      "subject": "wheat grain pile"
+    },
+    {
+      "sku_key": "raschetnyy_schet",
+      "subject": "bank account passbook booklet"
+    },
+    {
+      "sku_key": "rubaha",
+      "subject": "simple shirt tunic clothing"
+    },
+    {
+      "sku_key": "seno_1_kg",
+      "subject": "hay straw bundle"
+    },
+    {
+      "sku_key": "sherst",
+      "subject": "fluffy wool fleece"
+    },
+    {
+      "sku_key": "sherstyanoe_odeyalo",
+      "subject": "wool blanket folded"
+    },
+    {
+      "sku_key": "shtory",
+      "subject": "window curtains hanging"
+    },
+    {
+      "sku_key": "sok_bananovyy",
+      "subject": "glass of yellow banana juice drink"
+    },
+    {
+      "sku_key": "sok_mandarinovyy",
+      "subject": "glass of orange tangerine juice"
+    },
+    {
+      "sku_key": "sok_vinogradnyy",
+      "subject": "glass of purple grape juice"
+    },
+    {
+      "sku_key": "sok_yablochnyy",
+      "subject": "glass of apple juice orange-amber drink"
+    },
+    {
+      "sku_key": "steyk",
+      "subject": "cooked steak piece of meat"
+    },
+    {
+      "sku_key": "stvol",
+      "subject": "tree trunk log standing"
+    },
+    {
+      "sku_key": "syr",
+      "subject": "wedge of yellow cheese"
+    },
+    {
+      "sku_key": "telezhka_odnokolesnaya",
+      "subject": "wooden one-wheel hand cart wheelbarrow"
+    },
+    {
+      "sku_key": "tkan_hlopok",
+      "subject": "folded cotton cloth fabric"
+    },
+    {
+      "sku_key": "topor_ruchnoy",
+      "subject": "stone hand axe with wooden handle"
+    },
+    {
+      "sku_key": "upakovka_dlya_10_yaits",
+      "subject": "egg carton crate for eggs"
+    },
+    {
+      "sku_key": "vedro_10_l",
+      "subject": "wooden water bucket"
+    },
+    {
+      "sku_key": "verevka",
+      "subject": "coil of rope twine"
+    },
+    {
+      "sku_key": "vetki_1_kg",
+      "subject": "bundle of dry tree branches"
+    },
+    {
+      "sku_key": "vklad",
+      "subject": "savings deposit coin stack in a jar"
+    },
+    {
+      "sku_key": "voda_1_l",
+      "subject": "clay jug of water"
+    },
+    {
+      "sku_key": "yabloch_ratsion_3_sht",
+      "subject": "three red apples ration pack"
+    },
+    {
+      "sku_key": "yabloko",
+      "subject": "shiny red apple fruit"
+    },
+    {
+      "sku_key": "yaschik_025_na_025",
+      "subject": "small wooden crate box"
+    },
+    {
+      "sku_key": "yaytso",
+      "subject": "single white egg"
+    },
+    {
+      "sku_key": "zaem",
+      "subject": "loan handshake with coins"
+    },
+    {
+      "sku_key": "zhernova",
+      "subject": "stone mill grinding stones"
+    }
+  ],
+  "copy": [
+    {
+      "sku_key": "bochka_120_l",
+      "from": "bochka_30_l"
+    },
+    {
+      "sku_key": "brevno_vnut",
+      "from": "brevno"
+    },
+    {
+      "sku_key": "bumazhnyy_kulek_10_sht",
+      "from": "bumazhnyy_kulek"
+    },
+    {
+      "sku_key": "glina_vnut",
+      "from": "glina_1_kg"
+    },
+    {
+      "sku_key": "gorshok_2_l",
+      "from": "gorshok_1_l"
+    },
+    {
+      "sku_key": "gorshok_5_l",
+      "from": "gorshok_1_l"
+    },
+    {
+      "sku_key": "kamen_dlya_mostovoy",
+      "from": "kamen_dlya_pola"
+    },
+    {
+      "sku_key": "kora_vnut",
+      "from": "kora"
+    },
+    {
+      "sku_key": "litsenziya_na_kom_deyat",
+      "from": "litsenziya_blank"
+    },
+    {
+      "sku_key": "moloko_1_l",
+      "from": "moloko"
+    },
+    {
+      "sku_key": "nauchnaya_rabota_bolshaya",
+      "from": "nauchnaya_rabota_malaya"
+    },
+    {
+      "sku_key": "nauchnaya_rabota_srednyaya",
+      "from": "nauchnaya_rabota_malaya"
+    },
+    {
+      "sku_key": "obvyazka_breven_325",
+      "from": "verevka"
+    },
+    {
+      "sku_key": "obvyazka_dosok_125",
+      "from": "verevka"
+    },
+    {
+      "sku_key": "obvyazka_gorbyley_126",
+      "from": "verevka"
+    },
+    {
+      "sku_key": "obvyazka_knig_202",
+      "from": "verevka"
+    },
+    {
+      "sku_key": "perevozka_tary_1_km",
+      "from": "perevozka_gruza_1_km"
+    },
+    {
+      "sku_key": "pischaya_bumaga_60_listov",
+      "from": "pischaya_bumaga"
+    },
+    {
+      "sku_key": "proekt_banka",
+      "from": "proekt_ratushi"
+    },
+    {
+      "sku_key": "proekt_magazina",
+      "from": "proekt_ratushi"
+    },
+    {
+      "sku_key": "proekt_sklada",
+      "from": "proekt_ratushi"
+    },
+    {
+      "sku_key": "pshenitsa",
+      "from": "pshenitsa_1_kg"
+    },
+    {
+      "sku_key": "rulon_kory_25",
+      "from": "kora"
+    },
+    {
+      "sku_key": "voda",
+      "from": "voda_1_l"
+    },
+    {
+      "sku_key": "voda_120_l",
+      "from": "voda_1_l"
+    },
+    {
+      "sku_key": "voda_2_l",
+      "from": "voda_1_l"
+    },
+    {
+      "sku_key": "voda_30_l",
+      "from": "voda_1_l"
+    },
+    {
+      "sku_key": "voda_5_l",
+      "from": "voda_1_l"
+    },
+    {
+      "sku_key": "yaschik_05_na_05",
+      "from": "yaschik_025_na_025"
+    },
+    {
+      "sku_key": "yaytso_10_sht",
+      "from": "upakovka_dlya_10_yaits"
+    }
+  ],
+  "missing": []
+}

@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS chronicle (
   month      TINYINT UNSIGNED NOT NULL,
   year       INT NOT NULL,
   event_type VARCHAR(64) NOT NULL,
-  message    VARCHAR(500) NOT NULL,
+  message    TEXT NOT NULL,
   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT fk_chronicle_world FOREIGN KEY (world_id) REFERENCES worlds(id) ON DELETE CASCADE,
   INDEX idx_chronicle_world_time (world_id, year, month, day, id)

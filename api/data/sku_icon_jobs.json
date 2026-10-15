@@ -1,0 +1,547 @@
+[
+  {
+    "sku_key": "raschetnyy_schet",
+    "name_ru": "Расчетный счет",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "vklad",
+    "name_ru": "Вклад",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "zaem",
+    "name_ru": "Заем",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "ipoteka",
+    "name_ru": "Ипотека",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "glina_1_kg",
+    "name_ru": "Глина 1 кг",
+    "icon_key": "clay"
+  },
+  {
+    "sku_key": "glina_vnut",
+    "name_ru": "Глина внут",
+    "icon_key": "clay"
+  },
+  {
+    "sku_key": "gorshok_1_l",
+    "name_ru": "Горшок 1 л",
+    "icon_key": "pot"
+  },
+  {
+    "sku_key": "gorshok_2_l",
+    "name_ru": "Горшок 2 л",
+    "icon_key": "pot"
+  },
+  {
+    "sku_key": "gorshok_5_l",
+    "name_ru": "Горшок 5 л",
+    "icon_key": "pot"
+  },
+  {
+    "sku_key": "flakon_dlya_chernil",
+    "name_ru": "Флакон для чернил",
+    "icon_key": "ink"
+  },
+  {
+    "sku_key": "flakon_s_chernilami",
+    "name_ru": "Флакон с чернилами",
+    "icon_key": "ink"
+  },
+  {
+    "sku_key": "korichnevaya_kraska",
+    "name_ru": "Коричневая краска",
+    "icon_key": "log"
+  },
+  {
+    "sku_key": "kolodets_s_vodoy",
+    "name_ru": "Колодец с водой",
+    "icon_key": "water"
+  },
+  {
+    "sku_key": "vedro_10_l",
+    "name_ru": "Ведро 10 л",
+    "icon_key": "crate"
+  },
+  {
+    "sku_key": "bochka_30_l",
+    "name_ru": "Бочка 30 л",
+    "icon_key": "crate"
+  },
+  {
+    "sku_key": "bochka_120_l",
+    "name_ru": "Бочка 120 л",
+    "icon_key": "crate"
+  },
+  {
+    "sku_key": "yaschik_025_na_025",
+    "name_ru": "Ящик 0,25 на 0,25",
+    "icon_key": "crate"
+  },
+  {
+    "sku_key": "yaschik_05_na_05",
+    "name_ru": "Ящик 0,5 на 0,5",
+    "icon_key": "crate"
+  },
+  {
+    "sku_key": "obvyazka_breven_325",
+    "name_ru": "Обвязка бревен 325",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "obvyazka_dosok_125",
+    "name_ru": "Обвязка досок 125",
+    "icon_key": "juice"
+  },
+  {
+    "sku_key": "obvyazka_gorbyley_126",
+    "name_ru": "Обвязка горбылей 126",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "obvyazka_knig_202",
+    "name_ru": "Обвязка книг 202",
+    "icon_key": "book"
+  },
+  {
+    "sku_key": "rulon_kory_25",
+    "name_ru": "Рулон коры 25",
+    "icon_key": "log"
+  },
+  {
+    "sku_key": "telezhka_odnokolesnaya",
+    "name_ru": "Тележка одноколесная",
+    "icon_key": "cart"
+  },
+  {
+    "sku_key": "perevozka_gruza_1_km",
+    "name_ru": "Перевозка груза 1 км",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "perevozka_tary_1_km",
+    "name_ru": "Перевозка тары 1 км",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "pech_dlya_zapekaniya",
+    "name_ru": "Печь для запекания",
+    "icon_key": "oven"
+  },
+  {
+    "sku_key": "pech_dlya_obzhiga",
+    "name_ru": "Печь для обжига",
+    "icon_key": "oven"
+  },
+  {
+    "sku_key": "topor_ruchnoy",
+    "name_ru": "Топор ручной",
+    "icon_key": "axe"
+  },
+  {
+    "sku_key": "molot",
+    "name_ru": "Молот",
+    "icon_key": "hammer"
+  },
+  {
+    "sku_key": "lopata",
+    "name_ru": "Лопата",
+    "icon_key": "shovel"
+  },
+  {
+    "sku_key": "nozh",
+    "name_ru": "Нож",
+    "icon_key": "knife"
+  },
+  {
+    "sku_key": "lepeshka",
+    "name_ru": "Лепешка",
+    "icon_key": "flatbread"
+  },
+  {
+    "sku_key": "steyk",
+    "name_ru": "Стейк",
+    "icon_key": "steak"
+  },
+  {
+    "sku_key": "moloko",
+    "name_ru": "Молоко",
+    "icon_key": "milk"
+  },
+  {
+    "sku_key": "moloko_1_l",
+    "name_ru": "Молоко 1 л",
+    "icon_key": "milk"
+  },
+  {
+    "sku_key": "syr",
+    "name_ru": "Сыр",
+    "icon_key": "cheese"
+  },
+  {
+    "sku_key": "yabloko",
+    "name_ru": "Яблоко",
+    "icon_key": "apple"
+  },
+  {
+    "sku_key": "yabloch_ratsion_3_sht",
+    "name_ru": "Яблоч рацион 3 шт.",
+    "icon_key": "ration"
+  },
+  {
+    "sku_key": "sok_yablochnyy",
+    "name_ru": "Сок яблочный",
+    "icon_key": "juice"
+  },
+  {
+    "sku_key": "sok_bananovyy",
+    "name_ru": "Сок банановый",
+    "icon_key": "juice"
+  },
+  {
+    "sku_key": "sok_mandarinovyy",
+    "name_ru": "Сок мандариновый",
+    "icon_key": "juice"
+  },
+  {
+    "sku_key": "sok_vinogradnyy",
+    "name_ru": "Сок виноградный",
+    "icon_key": "juice"
+  },
+  {
+    "sku_key": "stvol",
+    "name_ru": "Ствол",
+    "icon_key": "log"
+  },
+  {
+    "sku_key": "brevno_vnut",
+    "name_ru": "Бревно внут",
+    "icon_key": "log"
+  },
+  {
+    "sku_key": "brevno",
+    "name_ru": "Бревно",
+    "icon_key": "log"
+  },
+  {
+    "sku_key": "doska",
+    "name_ru": "Доска",
+    "icon_key": "board"
+  },
+  {
+    "sku_key": "gorbyl",
+    "name_ru": "Горбыль",
+    "icon_key": "board"
+  },
+  {
+    "sku_key": "kora_vnut",
+    "name_ru": "Кора внут",
+    "icon_key": "log"
+  },
+  {
+    "sku_key": "kora",
+    "name_ru": "Кора",
+    "icon_key": "log"
+  },
+  {
+    "sku_key": "verevka",
+    "name_ru": "Веревка",
+    "icon_key": "rope"
+  },
+  {
+    "sku_key": "pischaya_bumaga",
+    "name_ru": "Писчая бумага",
+    "icon_key": "paper"
+  },
+  {
+    "sku_key": "pischaya_bumaga_60_listov",
+    "name_ru": "Писчая бумага 60 листов",
+    "icon_key": "paper"
+  },
+  {
+    "sku_key": "vetki_1_kg",
+    "name_ru": "Ветки 1 кг",
+    "icon_key": "branch"
+  },
+  {
+    "sku_key": "grosbuh",
+    "name_ru": "Гросбух",
+    "icon_key": "book"
+  },
+  {
+    "sku_key": "myaso_govyadina_korova",
+    "name_ru": "Мясо говядина (корова)",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "myaso_kuritsakorova",
+    "name_ru": "Мясо курица(корова)",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "myaso_baranina_korova",
+    "name_ru": "Мясо баранина (корова)",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "voda",
+    "name_ru": "Вода",
+    "icon_key": "water"
+  },
+  {
+    "sku_key": "voda_1_l",
+    "name_ru": "Вода 1 л",
+    "icon_key": "water"
+  },
+  {
+    "sku_key": "voda_2_l",
+    "name_ru": "Вода 2 л",
+    "icon_key": "water"
+  },
+  {
+    "sku_key": "voda_5_l",
+    "name_ru": "Вода 5 л",
+    "icon_key": "water"
+  },
+  {
+    "sku_key": "voda_30_l",
+    "name_ru": "Вода 30 л",
+    "icon_key": "water"
+  },
+  {
+    "sku_key": "voda_120_l",
+    "name_ru": "Вода 120 л",
+    "icon_key": "water"
+  },
+  {
+    "sku_key": "denznak",
+    "name_ru": "Дензнак",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "litsenziya_blank",
+    "name_ru": "Лицензия бланк",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "litsenziya_na_kom_deyat",
+    "name_ru": "Лицензия на ком деят",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "kamennaya_glyba",
+    "name_ru": "Каменная глыба",
+    "icon_key": "stone"
+  },
+  {
+    "sku_key": "kamenyy_dlya_kolodtsa",
+    "name_ru": "Каменый для колодца",
+    "icon_key": "well"
+  },
+  {
+    "sku_key": "kamen_dlya_pola",
+    "name_ru": "Камень для пола",
+    "icon_key": "stone"
+  },
+  {
+    "sku_key": "kamen_dlya_mostovoy",
+    "name_ru": "Камень для мостовой",
+    "icon_key": "stone"
+  },
+  {
+    "sku_key": "kamen_dlya_pechi",
+    "name_ru": "Камень для печи",
+    "icon_key": "stone"
+  },
+  {
+    "sku_key": "koleso",
+    "name_ru": "Колесо",
+    "icon_key": "wheel"
+  },
+  {
+    "sku_key": "zhernova",
+    "name_ru": "Жернова",
+    "icon_key": "mill"
+  },
+  {
+    "sku_key": "nauchnaya_rabota_malaya",
+    "name_ru": "Научная работа малая",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "nauchnaya_rabota_srednyaya",
+    "name_ru": "Научная работа средняя",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "nauchnaya_rabota_bolshaya",
+    "name_ru": "Научная работа большая",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "proekt_ratushi",
+    "name_ru": "Проект ратуши",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "proekt_banka",
+    "name_ru": "Проект банка",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "proekt_magazina",
+    "name_ru": "Проект магазина",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "proekt_sklada",
+    "name_ru": "Проект склада",
+    "icon_key": "service"
+  },
+  {
+    "sku_key": "pryalka",
+    "name_ru": "Прялка",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "nabor_igolok",
+    "name_ru": "Набор иголок",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "hlopok",
+    "name_ru": "Хлопок",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "nit_hlopok",
+    "name_ru": "Нить хлопок",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "tkan_hlopok",
+    "name_ru": "Ткань хлопок",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "sherst",
+    "name_ru": "Шерсть",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "kozha_ovtsa",
+    "name_ru": "Кожа (овца)",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "kozha_korova",
+    "name_ru": "Кожа (корова)",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "bele",
+    "name_ru": "Белье",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "rubaha",
+    "name_ru": "Рубаха",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "bryuki",
+    "name_ru": "Брюки",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "kurtka",
+    "name_ru": "Куртка",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "podushka",
+    "name_ru": "Подушка",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "sherstyanoe_odeyalo",
+    "name_ru": "Шерстяное одеяло",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "prostyn",
+    "name_ru": "Простынь",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "navolochka",
+    "name_ru": "Наволочка",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "shtory",
+    "name_ru": "Шторы",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "yaytso",
+    "name_ru": "Яйцо",
+    "icon_key": "egg"
+  },
+  {
+    "sku_key": "upakovka_dlya_10_yaits",
+    "name_ru": "Упаковка для 10 яиц",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "yaytso_10_sht",
+    "name_ru": "Яйцо 10 шт.",
+    "icon_key": "egg"
+  },
+  {
+    "sku_key": "obzhig",
+    "name_ru": "Обжиг",
+    "icon_key": "oven"
+  },
+  {
+    "sku_key": "pshenitsa",
+    "name_ru": "Пшеница",
+    "icon_key": "wheat"
+  },
+  {
+    "sku_key": "pshenitsa_1_kg",
+    "name_ru": "Пшеница 1 кг",
+    "icon_key": "wheat"
+  },
+  {
+    "sku_key": "seno_1_kg",
+    "name_ru": "Сено 1 кг",
+    "icon_key": "stock"
+  },
+  {
+    "sku_key": "muka_1_kg",
+    "name_ru": "Мука 1 кг",
+    "icon_key": "flour"
+  },
+  {
+    "sku_key": "bumazhnyy_kulek",
+    "name_ru": "Бумажный кулек",
+    "icon_key": "paper"
+  },
+  {
+    "sku_key": "bumazhnyy_kulek_10_sht",
+    "name_ru": "Бумажный кулек 10 шт.",
+    "icon_key": "paper"
+  },
+  {
+    "sku_key": "opilki",
+    "name_ru": "Опилки",
+    "icon_key": "branch"
+  }
+]

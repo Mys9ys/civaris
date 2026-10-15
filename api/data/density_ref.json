@@ -1,0 +1,154 @@
+[
+  {
+    "key": "water",
+    "name_ru": "Вода",
+    "density": 1.0,
+    "product_kinds": ["Вода"],
+    "name_match": ["вода"],
+    "notes": "г/см³ = кг/л"
+  },
+  {
+    "key": "clay_wet",
+    "name_ru": "Глина сырая",
+    "density": 2.0,
+    "product_kinds": ["Глина"],
+    "name_match": ["глина"],
+    "notes": "влажная / внут; сухая ≈ 1.6"
+  },
+  {
+    "key": "clay_dry",
+    "name_ru": "Глина сухая",
+    "density": 1.6,
+    "product_kinds": [],
+    "name_match": ["глина сух", "обожж"],
+    "notes": "после сушки / обжига"
+  },
+  {
+    "key": "ceramic",
+    "name_ru": "Керамика / горшок",
+    "density": 2.2,
+    "product_kinds": ["Тара для жидкости", "Тара для чернил", "Ведро"],
+    "name_match": ["горшок", "ведро", "флакон"],
+    "notes": "обожжённая глина"
+  },
+  {
+    "key": "wood",
+    "name_ru": "Дерево",
+    "density": 0.5,
+    "product_kinds": ["Дерево"],
+    "name_match": ["бревно", "доска", "горбыль", "ствол", "опил"],
+    "notes": "хвойное среднее; дуб ≈ 0.7"
+  },
+  {
+    "key": "bark",
+    "name_ru": "Кора",
+    "density": 0.4,
+    "product_kinds": [],
+    "name_match": ["кора"],
+    "notes": ""
+  },
+  {
+    "key": "stone",
+    "name_ru": "Камень",
+    "density": 2.6,
+    "product_kinds": ["Глыба", "Каменый блок прямоуг", "Каменый блок кругл"],
+    "name_match": ["камен", "жернов", "колесо"],
+    "notes": "гранит / плотный камень"
+  },
+  {
+    "key": "milk",
+    "name_ru": "Молоко",
+    "density": 1.03,
+    "product_kinds": ["Молочное"],
+    "name_match": ["молоко", "сыр"],
+    "notes": ""
+  },
+  {
+    "key": "meat",
+    "name_ru": "Мясо",
+    "density": 1.05,
+    "product_kinds": ["Мясо", "Мясное"],
+    "name_match": ["мясо", "стейк"],
+    "notes": ""
+  },
+  {
+    "key": "grain",
+    "name_ru": "Зерно / пшеница",
+    "density": 0.75,
+    "product_kinds": ["Зерно"],
+    "name_match": ["пшениц", "зерно"],
+    "notes": "насыпью"
+  },
+  {
+    "key": "flour",
+    "name_ru": "Мука",
+    "density": 0.6,
+    "product_kinds": ["Мука"],
+    "name_match": ["мука"],
+    "notes": ""
+  },
+  {
+    "key": "hay",
+    "name_ru": "Сено",
+    "density": 0.1,
+    "product_kinds": ["Корм для животных"],
+    "name_match": ["сено"],
+    "notes": "рыхлая укладка"
+  },
+  {
+    "key": "cotton",
+    "name_ru": "Хлопок / ткань",
+    "density": 0.3,
+    "product_kinds": ["Пряжа", "Для шитья"],
+    "name_match": ["хлопок", "ткань", "нить", "шерст"],
+    "notes": "рыхлый / текстиль"
+  },
+  {
+    "key": "paper",
+    "name_ru": "Бумага",
+    "density": 0.8,
+    "product_kinds": ["Бумага", "Печать"],
+    "name_match": ["бумаг", "кулек", "дензнак", "лиценз", "гросбух"],
+    "notes": ""
+  },
+  {
+    "key": "fruit",
+    "name_ru": "Фрукт / яблоко",
+    "density": 0.8,
+    "product_kinds": ["Фрукт", "Соки"],
+    "name_match": ["яблок", "сок"],
+    "notes": "сок ≈ 1.0 как вода"
+  },
+  {
+    "key": "egg",
+    "name_ru": "Яйцо",
+    "density": 1.03,
+    "product_kinds": ["Яйца"],
+    "name_match": ["яйц"],
+    "notes": ""
+  },
+  {
+    "key": "bread",
+    "name_ru": "Хлеб / лепёшка",
+    "density": 0.35,
+    "product_kinds": ["Хлебобулочное"],
+    "name_match": ["лепеш", "лепёш", "хлеб"],
+    "notes": ""
+  },
+  {
+    "key": "paint",
+    "name_ru": "Краска",
+    "density": 1.4,
+    "product_kinds": ["Краска"],
+    "name_match": ["краск", "чернил"],
+    "notes": ""
+  },
+  {
+    "key": "wood_pack",
+    "name_ru": "Деревянная тара",
+    "density": 0.55,
+    "product_kinds": ["Ящик", "Тара для древесины"],
+    "name_match": ["ящик", "бочк", "обвяз"],
+    "notes": "тара; для содержимого — плотность содержимого"
+  }
+]

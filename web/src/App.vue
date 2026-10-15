@@ -12,7 +12,7 @@
 
 <style scoped>
 .shell {
-  max-width: 960px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 1.25rem 1rem 3rem;
 }

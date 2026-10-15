@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Civaris — слои одежды · soft-3D</title>
+  <style>
+    :root {
+      --bg: #e8efe4;
+      --ink: #2f3a2c;
+      --panel: #f7faf4;
+      --muted: #5a6b4e;
+      --line: #cfd9c4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      display: grid;
+      place-items: center;
+      padding: 1.25rem;
+    }
+    .card {
+      width: min(640px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.2rem 1.35rem 1.4rem;
+    }
+    h1 { font-size: 1.15rem; margin: 0 0 0.3rem; }
+    .sub { margin: 0 0 1rem; color: var(--muted); font-size: 0.92rem; line-height: 1.4; }
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 620px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+    .stage {
+      height: 300px;
+      display: grid;
+      place-items: center;
+      background: #dfe8d7;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sprite {
+      width: 220px;
+      height: 220px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .panel h2 {
+      font-size: 0.95rem;
+      margin: 0 0 0.65rem;
+      font-weight: 650;
+    }
+    .layers {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .layers label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.55rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .layers label:has(input:disabled) {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+    .order {
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .order li { padding: 0.15rem 0; }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      align-items: center;
+    }
+    button {
+      border: 1px solid #9aab8c;
+      background: #fff;
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 0.45rem 0.75rem;
+      cursor: pointer;
+      font: inherit;
+    }
+    button.active { background: #2f3a2c; color: #f7faf4; border-color: #2f3a2c; }
+    .hint { margin-top: 0.85rem; font-size: 0.8rem; color: var(--muted); }
+    code { font-size: 0.78rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Кубик soft-3D · слои одежды</h1>
+    <p class="sub">
+      Порядок надевания: тело → обувь → низ → верх → шапка.
+      Галочки включают слои по очереди (каждый следующий требует предыдущие).
+    </p>
+
+    <div class="layout">
+      <div class="stage">
+        <div id="sprite" class="sprite" role="img" aria-label="Персонаж"></div>
+      </div>
+      <div class="panel">
+        <h2>Слои</h2>
+        <div class="layers">
+          <label><input type="checkbox" data-layer="0" checked disabled /> 1. Тело (куб 2×2)</label>
+          <label><input type="checkbox" data-layer="1" /> 2. Обувь</label>
+          <label><input type="checkbox" data-layer="2" /> 3. Низ (шорты)</label>
+          <label><input type="checkbox" data-layer="3" /> 4. Верх (туника)</label>
+          <label><input type="checkbox" data-layer="4" /> 5. Шапка</label>
+        </div>
+        <ol class="order">
+          <li>ШвейФаб позже шьёт слои 2–5</li>
+          <li>Ходьба — в полном стартовом комплекте</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="row">
+      <button type="button" id="modeDress" class="active">Одевание</button>
+      <button type="button" id="modeWalk">Ходьба (полный костюм)</button>
+      <button type="button" id="btnPlay" hidden>Пауза</button>
+      <label id="speedWrap" hidden style="font-size:0.85rem;color:var(--muted)">
+        Скорость <input id="speed" type="range" min="80" max="320" value="150" />
+      </label>
+    </div>
+    <p class="hint">Демо: <code>http://civaris.loc/cube-walk.html</code> · файлы в <code>/assets/cube-s2/</code></p>
+  </div>
+
+  <script>
+    const BASE = "/assets/cube-s2/";
+    const dress = [
+      BASE + "cube-s2-base-front.png",
+      BASE + "cube-s2-dress-1-shoes.png",
+      BASE + "cube-s2-dress-2-pants.png",
+      BASE + "cube-s2-dress-3-shirt.png",
+      BASE + "cube-s2-dress-4-hat.png",
+    ];
+    const walk = [
+      BASE + "cube-s2-walk-dressed-01.png",
+      BASE + "cube-s2-walk-dressed-02.png",
+      BASE + "cube-s2-walk-dressed-03.png",
+      BASE + "cube-s2-walk-dressed-04.png",
+    ];
+
+    const sprite = document.getElementById("sprite");
+    const checks = [...document.querySelectorAll("[data-layer]")];
+    const modeDress = document.getElementById("modeDress");
+    const modeWalk = document.getElementById("modeWalk");
+    const btnPlay = document.getElementById("btnPlay");
+    const speedWrap = document.getElementById("speedWrap");
+    const speed = document.getElementById("speed");
+
+    let mode = "dress";
+    let frame = 0;
+    let playing = true;
+    let timer = null;
+
+    function highestLayer() {
+      let h = 0;
+      for (const c of checks) {
+        const n = Number(c.dataset.layer);
+        if (n === 0) continue;
+        if (c.checked) h = Math.max(h, n);
+      }
+      return h;
+    }
+
+    function syncCascade(changed) {
+      const n = Number(changed.dataset.layer);
+      if (changed.checked) {
+        checks.forEach((c) => {
+          const m = Number(c.dataset.layer);
+          if (m > 0 && m < n) c.checked = true;
+        });
+      } else {
+        checks.forEach((c) => {
+          const m = Number(c.dataset.layer);
+          if (m > n) c.checked = false;
+        });
+      }
+    }
+
+    function paintDress() {
+      sprite.style.backgroundImage = `url("${dress[highestLayer()]}")`;
+    }
+
+    function paintWalk() {
+      sprite.style.backgroundImage = `url("${walk[frame]}")`;
+    }
+
+    function stopWalk() {
+      clearInterval(timer);
+      timer = null;
+    }
+
+    function startWalk() {
+      stopWalk();
+      if (!playing) return;
+      timer = setInterval(() => {
+        frame = (frame + 1) % walk.length;
+        paintWalk();
+      }, Number(speed.value));
+    }
+
+    function setMode(next) {
+      mode = next;
+      modeDress.classList.toggle("active", mode === "dress");
+      modeWalk.classList.toggle("active", mode === "walk");
+      btnPlay.hidden = mode !== "walk";
+      speedWrap.hidden = mode !== "walk";
+      if (mode === "dress") {
+        stopWalk();
+        paintDress();
+      } else {
+        // полный костюм
+        checks.forEach((c) => {
+          const n = Number(c.dataset.layer);
+          if (n > 0) c.checked = true;
+        });
+        frame = 0;
+        playing = true;
+        btnPlay.textContent = "Пауза";
+        btnPlay.classList.add("active");
+        paintWalk();
+        startWalk();
+      }
+    }
+
+    checks.forEach((c) => {
+      c.addEventListener("change", () => {
+        if (c.disabled) return;
+        syncCascade(c);
+        if (mode === "dress") paintDress();
+      });
+    });
+
+    modeDress.addEventListener("click", () => setMode("dress"));
+    modeWalk.addEventListener("click", () => setMode("walk"));
+    btnPlay.addEventListener("click", () => {
+      playing = !playing;
+      btnPlay.textContent = playing ? "Пауза" : "Играть";
+      btnPlay.classList.toggle("active", playing);
+      if (playing) startWalk();
+      else stopWalk();
+    });
+    speed.addEventListener("input", () => {
+      if (mode === "walk") startWalk();
+    });
+
+    setMode("dress");
+  </script>
+</body>
+</html>

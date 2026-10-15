@@ -112,6 +112,34 @@ final class Auth
         return $row ?: null;
     }
 
+    /**
+     * Локальные тесты: без пароля сажаем сессию admin.
+     * Включается только флагом app.dev_auto_admin в config.php.
+     */
+    public static function maybeDevAutoAdmin(PDO $pdo, array $config): void
+    {
+        if (empty($config['app']['dev_auto_admin'])) {
+            return;
+        }
+        if (self::userId() !== null) {
+            return;
+        }
+        $stmt = $pdo->query(
+            "SELECT id, login FROM users WHERE role = 'admin' ORDER BY id ASC LIMIT 1"
+        );
+        $row = $stmt ? $stmt->fetch() : false;
+        if (!$row) {
+            $stmt = $pdo->query('SELECT id, login FROM users ORDER BY id ASC LIMIT 1');
+            $row = $stmt ? $stmt->fetch() : false;
+        }
+        if (!$row) {
+            return;
+        }
+        self::startSession();
+        $_SESSION['user_id'] = (int) $row['id'];
+        $_SESSION['dev_auto_admin'] = true;
+    }
+
     public static function requireAdmin(PDO $pdo): int
     {
         $id = self::requireUser();

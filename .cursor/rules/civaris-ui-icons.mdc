@@ -1,0 +1,23 @@
+---
+description: Civaris UI — иконки Clay Soft без эмодзи
+globs: web/**/*.{vue,css,js}, public/assets/icons/**/*.svg, docs/ui-icons*.md
+alwaysApply: false
+---
+
+# UI icons (Clay Soft · locked)
+
+## Запрет
+- Не использовать Unicode-эмодзи в игровом UI.
+- Летопись/бэкенд: не добавлять новые эмодзи; старые убирать по мере касания.
+
+## Стиль (зафиксирован)
+- **Clay Soft**: скругления, обводка ~1.75px `#1f3d28`, заливка охра/cream/pine, лёгкий кубический скос.
+- SVG `viewBox="0 0 24 24"`, размеры 16 / 20 / 24.
+- Файлы: `public/assets/icons/icon-{key}.svg`
+- В Vue: компонент `CivIcon` (`web/src/components/CivIcon.vue`) — предпочтительнее `<img>` (currentColor).
+
+## Ключи
+Метрики: `coin`, `workers`, `vacancy`, `population`, `credit`, `firm`  
+Товары: `apple`, `water`, `pot`, `clay`, `log`, `wheat`, `egg`, `milk`, `flatbread`, `cheese`, `stone`, `crate`, `stock`
+
+Подпись рядом с иконкой обязательна (a11y).
